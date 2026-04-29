@@ -94,7 +94,7 @@ int main (){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun == A[j].tahun){
                         if(A[i].nilai == A[j].nilai){
-                            if(&A[i].nama - 'A' > &A[i].nama - 'A'){
+                            if(&A[i].nama[0] - 'A' > &A[i].nama[0] - 'A'){
                                 temp = A[i];
                                 A[i] = A[j];
                                 A[j] = temp;
