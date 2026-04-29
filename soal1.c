@@ -106,7 +106,7 @@ int main (){
         }
     }
     for (int i = 0; i< N;i++){
-        printf("%s %s %d %d \n", &A[i].nama, &A[i].kategori, A[i].nilai, A[i].tahun);
+        printf("%s %s %d %d\n", &A[i].nama, &A[i].kategori, A[i].nilai, A[i].tahun);
     }
     
 
