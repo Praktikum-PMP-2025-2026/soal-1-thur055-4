@@ -37,7 +37,7 @@ int main (){
                 }
             }
         }
-        temp = A[i];
+        temp = A[i];    
         A[i] = A[min_idx];
         A[min_idx] = temp;
     }
@@ -46,8 +46,8 @@ int main (){
         int min_idx = i;
         for (int j = i+1; j<N ;j++){
             if (i != j){
-                if(A[i].kategori == A[j].kategori){
-                    if(A[i].tahun < A[j].tahun){
+                if(A[min_idx].kategori == A[j].kategori){
+                    if(A[j].tahun < A[min_idx].tahun){
                         min_idx = j;
                     }
                 }
@@ -63,9 +63,9 @@ int main (){
         
         for (int j = i+1; j<N;j++){
             if (i != j){
-                if(A[i].kategori == A[j].kategori){
-                    if(A[i].tahun == A[j].tahun){
-                        if(A[i].nilai > A[j].nilai){
+                if(A[min_idx].kategori == A[j].kategori){
+                    if(A[min_idx].tahun == A[j].tahun){
+                        if(A[j].nilai < A[min_idx].nilai){
                             min_idx = j;
                         }
                     }
@@ -76,14 +76,15 @@ int main (){
         A[i] = A[min_idx];
         A[min_idx] = temp;
     }
+    
     for (int i = 0; i < N-1;i++){
         
         int min_idx = i;
         for (int j = i+1; j<N;j++){
             if (i != j){
-                if(A[i].kategori == A[j].kategori){
-                    if(A[i].tahun == A[j].tahun){
-                        if(A[i].nilai == A[j].nilai){
+                if(A[min_idx].kategori == A[j].kategori){
+                    if(A[min_idx].tahun == A[j].tahun){
+                        if(A[min_idx].nilai == A[j].nilai){
                             if(strcmp(A[min_idx].nama, A[j].nama)> 0){
                                 min_idx = j;
                             }
@@ -96,6 +97,7 @@ int main (){
         A[i] = A[min_idx];
         A[min_idx] = temp;
     }
+    
     for (int i = 0; i< N;i++){
         printf("%s %s %d %d\n", &A[i].nama, &A[i].kategori, A[i].nilai, A[i].tahun);
     }
