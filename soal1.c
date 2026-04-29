@@ -14,9 +14,8 @@ typedef struct Artefak
 int main (){
     int N;
     scanf("%d ", &N);
-    Artefak *A;
+    Artefak A[100];
     char buffer[100];
-    A =  (Artefak*)malloc(sizeof(N));
     for (int i = 0; i < N-1 ; i++){
         A[i].nama = (char*)malloc(strlen(buffer));
         A[i].kategori = (char*)malloc(strlen(buffer));
@@ -38,72 +37,78 @@ int main (){
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
+        int min_idx = i;
         for (int j = i+1; j<N;j++){
-            if (i != j){
-                if(&A[i].kategori[0] - 'a' > &A[j].kategori[0] - 'a'){
-                    temp = A[i];
-                    A[i] = A[j];
-                    A[j] = temp;
-                }
+            if(&A[i].kategori[0] - 'a' > &A[j].kategori[0] - 'a'){
+                min_idx = j;
             }
         }
+        temp = A[i];
+        A[i] = A[min_idx];
+        A[min_idx] = temp;
     }
     for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
+        int min_idx = i;
         for (int j = i+1; j<N ;j++){
             if (i != j){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun < A[j].tahun){
-                        temp = A[i];
-                        A[i] = A[j];
-                        A[j] = temp;
+                        min_idx = j;
                     }
                 }
             }
         }
+        temp = A[i];
+        A[i] = A[min_idx];
+        A[min_idx] = temp;
     }
     for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
+        int min_idx = i;
         for (int j = i+1; j<N;j++){
             if (i != j){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun == A[j].tahun){
                         if(A[i].nilai > A[j].nilai){
-                            temp = A[i];
-                            A[i] = A[j];
-                            A[j] = temp;
+                            min_idx = j;
                         }
                     }
                 }
             }
         }
+        temp = A[i];
+        A[i] = A[min_idx];
+        A[min_idx] = temp;
     }
     for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
+        int min_idx = i;
         for (int j = i+1; j<N;j++){
             if (i != j){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun == A[j].tahun){
                         if(A[i].nilai == A[j].nilai){
-                            if(&A[i].nama[0] - 'A' > &A[i].nama[0] - 'A'){
-                                temp = A[i];
-                                A[i] = A[j];
-                                A[j] = temp;
+                            if(strcmp(A[i].nama, A[j].nama) > 0){
+                                min_idx = j;
                             }
                         }
                     }
                 }
             }
         }
+        temp = A[i];
+        A[i] = A[min_idx];
+        A[min_idx] = temp;
     }
     for (int i = 0; i< N;i++){
         printf("%s %s %d %d\n", &A[i].nama, &A[i].kategori, A[i].nilai, A[i].tahun);
