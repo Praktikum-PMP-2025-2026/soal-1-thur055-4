@@ -1,3 +1,12 @@
+/** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2024/2025
+ *   Modul               : 3
+ *   Hari dan Tanggal    : 29/04/2026
+ *   Nama (NIM)          : Arthur (13224055)
+ *   Nama File           : soal1.c
+ *   Deskripsi           : sorting fungsi artefak
+ * 
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -16,7 +25,6 @@ int main (){
     int N;
     scanf("%d ", &N);
     Artefak A[N];
-    char buffer[100];
     for (int i = 0; i < N-1 ; i++){
         scanf("%s %s %d %d ", &A[i].nama, &A[i].kategori, &A[i].nilai, &A[i].tahun);
     }
