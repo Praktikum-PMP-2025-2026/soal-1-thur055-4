@@ -20,11 +20,11 @@ int main (){
     for (int i = 0; i < N-1 ; i++){
         A[i].nama = (char*)malloc(strlen(buffer));
         A[i].kategori = (char*)malloc(strlen(buffer));
-        scanf("%s %s %d %d ", &A[i].nama, &A[i].kategori, &A[i].nilai, &A[i].tahun);
+        scanf("%s %s %d %d ", A[i].nama, A[i].kategori, &A[i].nilai, &A[i].tahun);
     }
     A[N-1].nama = (char*)malloc(strlen(buffer));
     A[N-1].kategori = (char*)malloc(strlen(buffer));
-    scanf("%s %s %d %d", &A[N-1].nama, &A[N-1].kategori, &A[N-1].nilai, &A[N-1].tahun);
+    scanf("%s %s %d %d", A[N-1].nama, A[N-1].kategori, &A[N-1].nilai, &A[N-1].tahun);
 
     //test print
     /*
