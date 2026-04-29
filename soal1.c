@@ -98,7 +98,7 @@ int main (){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun == A[j].tahun){
                         if(A[i].nilai == A[j].nilai){
-                            if(strcmp(A[i].nama, A[j].nama) > 0){
+                            if(A[i].nama[0] - 'A' > A[j].nama[0] - 'A'){
                                 min_idx = j;
                             }
                         }
