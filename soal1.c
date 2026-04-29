@@ -50,7 +50,7 @@ int main (){
         swapped = false;
         for(int j = 0;j<N-i-1;j++){
             if (strcmp(A[j].kategori, A[j+1].kategori) == 0){
-                if(A[j].tahun > A [j+1].tahun){
+                if(A[j].tahun < A [j+1].tahun){
                     
                     temp = A[j];
                     A[j] = A[j+1];
@@ -69,7 +69,7 @@ int main (){
         for(int j = 0;j<N-i-1;j++){
             if (strcmp(A[j].kategori, A[j+1].kategori) == 0){
                 if(A[j].tahun == A [j+1].tahun){
-                    if(A[j].nilai > A[j+1].nilai){
+                    if(A[j].nilai < A[j+1].nilai){
                         temp = A[j];
                         A[j] = A[j+1];
                         A[j+1] = temp;
