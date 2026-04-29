@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct Artefak
 {
@@ -28,75 +29,82 @@ int main (){
     }
     */
     Artefak temp;
+    bool swapped;
     for (int i = 0; i < N-1;i++){
-        int min_idx = i;
-        for (int j = i+1; j<N;j++){
-            if (i != j){
-                if(strcmp(A[min_idx].kategori , A[j].kategori)>0){
-                    min_idx = j;
-                }
+        swapped = false;
+        for(int j = 0;j<N-i-1;j++){
+            if (strcmp(A[j].kategori, A[j+1].kategori)>0){
+                temp = A[j];
+                A[j] = A[j+1];
+                A[j+1] = temp;
+                swapped = true;
             }
         }
-        temp = A[i];    
-        A[i] = A[min_idx];
-        A[min_idx] = temp;
+        if (swapped == false){
+            break;
+        }
     }
     for (int i = 0; i < N-1;i++){
         
-        int min_idx = i;
-        for (int j = i+1; j<N ;j++){
-            if (i != j){
-                if(A[min_idx].kategori == A[j].kategori){
-                    if(A[j].tahun < A[min_idx].tahun){
-                        min_idx = j;
-                    }
+        
+        swapped = false;
+        for(int j = 0;j<N-i-1;j++){
+            if (strcmp(A[j].kategori, A[j+1].kategori) == 0){
+                if(A[j].tahun > A [j+1].tahun){
+                    
+                    temp = A[j];
+                    A[j] = A[j+1];
+                    A[j+1] = temp;
+                    swapped = true;
                 }
             }
         }
-        temp = A[i];
-        A[i] = A[min_idx];
-        A[min_idx] = temp;
+        if (swapped == false){
+            break;
+        }
     }
 
     for (int i = 0; i < N-1;i++){
-        int min_idx = i;
-        
-        for (int j = i+1; j<N;j++){
-            if (i != j){
-                if(A[min_idx].kategori == A[j].kategori){
-                    if(A[min_idx].tahun == A[j].tahun){
-                        if(A[j].nilai < A[min_idx].nilai){
-                            min_idx = j;
-                        }
+        swapped = false;
+        for(int j = 0;j<N-i-1;j++){
+            if (strcmp(A[j].kategori, A[j+1].kategori) == 0){
+                if(A[j].tahun == A [j+1].tahun){
+                    if(A[j].nilai > A[j+1].nilai){
+                        temp = A[j];
+                        A[j] = A[j+1];
+                        A[j+1] = temp;
+                        swapped = true;
                     }
                 }
             }
         }
-        temp = A[i];
-        A[i] = A[min_idx];
-        A[min_idx] = temp;
+        if (swapped == false){
+            break;
+        }
     }
     
     for (int i = 0; i < N-1;i++){
         
-        int min_idx = i;
-        for (int j = i+1; j<N;j++){
-            if (i != j){
-                if(A[min_idx].kategori == A[j].kategori){
-                    if(A[min_idx].tahun == A[j].tahun){
-                        if(A[min_idx].nilai == A[j].nilai){
-                            if(strcmp(A[min_idx].nama, A[j].nama)> 0){
-                                min_idx = j;
-                            }
+       swapped = false;
+        for(int j = 0;j<N-i-1;j++){
+            if (strcmp(A[j].kategori, A[j+1].kategori) == 0){
+                if(A[j].tahun == A [j+1].tahun){
+                    if(A[j].nilai == A[j+1].nilai){
+                        if(strcmp(A[j].kategori , A[j+1].kategori)>0){
+                            temp = A[j];
+                            A[j] = A[j+1];
+                            A[j+1] = temp;
+                            swapped = true;
                         }
                     }
                 }
             }
         }
-        temp = A[i];
-        A[i] = A[min_idx];
-        A[min_idx] = temp;
+        if (swapped == false){
+            break;
+        }
     }
+    
     
     for (int i = 0; i< N;i++){
         printf("%s %s %d %d\n", &A[i].nama, &A[i].kategori, A[i].nilai, A[i].tahun);
