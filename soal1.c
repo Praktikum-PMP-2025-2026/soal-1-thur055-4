@@ -33,12 +33,12 @@ int main (){
     }
     */
     Artefak temp;
-    for (int i = 0; i < N;i++){
+    for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
-        for (int j = i; j<N;j++){
+        for (int j = i+1; j<N;j++){
             if (i != j){
                 if(&A[i].kategori[0] - 'a' > &A[j].kategori[0] - 'a'){
                     temp = A[i];
@@ -48,12 +48,12 @@ int main (){
             }
         }
     }
-    for (int i = 0; i < N;i++){
+    for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
-        for (int j = i; j<N;j++){
+        for (int j = i+1; j<N ;j++){
             if (i != j){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun < A[j].tahun){
@@ -65,12 +65,12 @@ int main (){
             }
         }
     }
-    for (int i = 0; i < N;i++){
+    for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
-        for (int j = i; j<N;j++){
+        for (int j = i+1; j<N;j++){
             if (i != j){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun == A[j].tahun){
@@ -84,12 +84,12 @@ int main (){
             }
         }
     }
-    for (int i = 0; i < N;i++){
+    for (int i = 0; i < N-1;i++){
         //sort dulu
         //printf("%c\n", &A[i].kategori[0]);
         temp.nama = (char*)malloc(strlen(buffer));
         temp.kategori = (char*)malloc(strlen(buffer));
-        for (int j = i; j<N;j++){
+        for (int j = i+1; j<N;j++){
             if (i != j){
                 if(A[i].kategori == A[j].kategori){
                     if(A[i].tahun == A[j].tahun){
